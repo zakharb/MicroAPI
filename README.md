@@ -45,9 +45,9 @@
 ## Configuration  
 </a>  
 
-> To solve problem with performance each Service run in container
+> To solve problem with performance each Service run in container  
 > Uvicorn work as ASGI server and connect to one piece with Nginx  
-> Main configuration is `docker-compose.yml`
+> Main configuration is `docker-compose.yml`  
 
 - every service located in separate directory `name-service`  
 - use `Dockerfile` to change docker installation settings  
