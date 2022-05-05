@@ -130,29 +130,23 @@ cd client
 source venv/bin/activate 
 python -m microapiclient
 ```
-- Usage  
--- generate Customers  
-
+Usage  
+- Generate Customers  
 ```
 python -m microapiclient postcustomer --customer-count 50
 ```  
-
--- generate Products   
-
+- Generate Products   
 ```
 python -m microapiclient postproduct --product-count 50
 ```  
-
--- generate Orders to file  
+- Generate Orders to file  
 ```
 python -m microapiclient generateorder --order-count 1000 --task-count 32
 ```  
-
--- bulk write Orders from file to DB  
+- Bulk write Orders from file to DB  
 ```
 python -m microapiclient postorders --order-file orders.csv --task-count 32
 ```  
-
 - View logs in `client.log`  
 ```
 cat client.log | more
