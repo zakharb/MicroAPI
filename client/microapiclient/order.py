@@ -52,3 +52,6 @@ class Order:
                 return await resp.text()
         except Exception as e:
             logging.error('OrderAPI posting data error: ' + repr(e))
+
+    async def close_session(self):
+        await self.session.close()
