@@ -132,9 +132,7 @@ python -m microapiclient
 ```
 - Usage  
 -- generate Customers  
-```
-python -m microapiclient postcustomer --customer-count 50
-```  
+
 
 -- generate Products   
 ```
