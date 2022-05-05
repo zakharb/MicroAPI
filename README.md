@@ -8,7 +8,7 @@
 ![](https://img.shields.io/badge/version-1.0-blue)
 ![](https://img.shields.io/badge/python-3.9-blue)
 
-## Содержание  
+## Content  
 [Important info](#important_info)  
 [Install](#install)  
 [Configuration](#configuration)  
