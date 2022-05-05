@@ -89,7 +89,7 @@
 
 - Folder `client` contains client to work with services  
 ```
-└─$ python __main__.py -h                                              
+└─$ python -m microapiclient
   __   __   _                      _____   _____  _______ 
  (__)_(__) (_)        _           (_____) (_____)(_______)
 (_) (_) (_) _    ___ (_)__  ___  (_)___(_)(_)__(_)  (_)   
@@ -109,7 +109,7 @@ positional arguments:
     postproduct         Post new product into DB
     getprice            Get price_net and price_gross
     postorder           Post order into DB
-    postorders          Post order into DB
+    postorders          Bulk write orders into DB
     generateorder       Generate order into CSV file
 
 optional arguments:

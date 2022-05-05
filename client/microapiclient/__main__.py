@@ -190,7 +190,7 @@ if __name__ == "__main__":
     postorder.add_argument('--price-gross', type=str, required=True, 
                            help='gross price')
     # args for Manager actions
-    postorders = subparser.add_parser('postorders', help='Post order into DB')
+    postorders = subparser.add_parser('postorders', help='Bulk write orders into DB')
     postorders.add_argument('--order-file', type=str, required=True, 
                            help='file name to read orders')
     postorders.add_argument('--task-count', type=int, required=True, 
