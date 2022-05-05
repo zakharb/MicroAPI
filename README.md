@@ -21,10 +21,10 @@
 </a>  
 
 > MicroAPI work as fully separates API in Async mode  
-> Stack: FastAPI + Uvicorn + Nginx
-> Each Service has its own Database and run in docker containers  
-> Easily expandability With Micro Service architecture 
-> Database can be easily switch from Postgres to MongoDB or other
+> Stack: FastAPI + Uvicorn + Nginx  
+> Each Service has its own Database and run in docker containers   
+> Easily expandability With Micro Service architecture  
+> Database can be easily switch from Postgres to MongoDB or other  
 
 <a name="install"/>  
 
