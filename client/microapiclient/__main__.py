@@ -34,11 +34,8 @@ from datetime import datetime
 
 from random import randrange, choice
 from logging.handlers import RotatingFileHandler
-from customer import Customer
-from product import Product
-from price import Price
-from order import Order
-from manager import post_orders, generate_orders
+from microapiclient import Customer, Product, Price, Order
+from microapiclient import post_orders, generate_orders
 
 def print_logo():
     print('  __   __   _                      _____   _____  _______ \n'\

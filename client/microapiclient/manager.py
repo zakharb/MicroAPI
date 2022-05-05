@@ -31,10 +31,10 @@ import logging
 from datetime import datetime
 from random import randrange, choice
 
-from customer import Customer
-from product import Product
-from price import Price
-from order import Order
+from .customer import Customer
+from .product import Product
+from .price import Price
+from .order import Order
 
 async def post_orders(file, task_number):
     """

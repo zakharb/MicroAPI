@@ -117,4 +117,16 @@ optional arguments:
 
 ```
 
-- Install with `python -m pip install -e .`
+- Install  
+```
+cd client
+python3 -m venv venv
+source venv/bin/activate 
+python -m pip install -e .
+```
+- Run  
+```
+cd client
+source venv/bin/activate 
+python -m microapiclient
+```
