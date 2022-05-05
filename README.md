@@ -13,6 +13,7 @@
 [Install](#install)  
 [Configuration](#configuration)  
 [Client](#client)  
+[Usage](#usage)  
 
 
 <a name="important_info"/>
@@ -130,7 +131,12 @@ cd client
 source venv/bin/activate 
 python -m microapiclient
 ```
-Usage  
+
+<a name="usage"/>  
+
+## Usage  
+</a>  
+
 - Generate Customers  
 ```
 python -m microapiclient postcustomer --customer-count 50
