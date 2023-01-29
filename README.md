@@ -5,7 +5,7 @@
 
 <p align="center">
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&pause=1000&color=05998B&center=true&width=500&lines=++Microservice+architecture;+with+FastAPI+and+Docker" alt="description" ></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&pause=1000&color=05998B&center=true&width=500&lines=++Microservice+architecture;+with+FastAPI+and+Docker" alt="description" />
 
 </p>
 
