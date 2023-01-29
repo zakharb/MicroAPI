@@ -12,8 +12,6 @@ services:
       - DATABASE_URI=postgresql://customer_db_username:customer_db_password@customer_db/customer_db_dev
     depends_on:
        - customer_db
-    logging:
-        driver: none 
   
   customer_db:
     image: postgres:latest
@@ -58,8 +56,6 @@ services:
       - 8003:8000
     environment:
       - DATABASE_URI=postgresql://price_db_username:price_db_password@price_db/price_db_dev
-    logging:
-        driver: none 
 
   order_service:
     build: ./order-service
@@ -70,8 +66,6 @@ services:
       - 8004:8000
     environment:
       - DATABASE_URI=postgresql://order_db_username:order_db_password@order_db/order_db_dev
-    logging:
-        driver: none 
 
   order_db:
     image: postgres:latest
@@ -95,8 +89,6 @@ services:
       - product_service
       - price_service
       - order_service
-    logging:
-        driver: none 
 
 volumes:
   postgres_data_customer:
