@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/zakharb/microapi">
-  <img src="logo.png" alt="logo" />
+  <img src="img/logo.png" alt="logo" />
 </p>
 
 <p align="center">
@@ -16,18 +16,27 @@
 
 
 <p align="center">
-  <img src="usage.gif" alt="usage" />
+  <img src="img/usage.gif" alt="usage" />
 </p>
 
 
 ## Getting Started
 
-[MicroAPI](https://github.com/zakharb/microapi) is fully separates API in Async mode  
-Each Service has its own Database and runs in Docker containers   
-Easily expandability With Micro Service architecture  
-Database can be switch from Postgres to MongoDB or other 
+[MicroAPI](https://github.com/zakharb/microapi) is fully separates API in Async mode based on [Microservices](https://en.wikipedia.org/wiki/Microservices)   
 
-### Prerequisites
+For CRUD operations is used `Customer - Product - Price - Order` model  
+
+> The `Customer` buys a `Product` with a different `Price` and receives an `Order`  
+> The `Price` is calculated including taxes/discounts depending on the type of customer/  
+
+Each part is work like Microservice  
+The Microservice runs in separate Docker container   
+
+Microservice has its own Database  
+Database can be switch from Postgres to MongoDB or other  
+
+
+### Requirements
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
@@ -49,122 +58,52 @@ Start docker-compose
 docker-compose up -d
 ```
 
-Check services:  
-
-- [Customers](http://localhost:8080/api/v1/customers/docs)  
-- [Products](http://localhost:8080/api/v1/products/docs)  
-- [Prices](http://localhost:8080/api/v1/prices/docs)  
-- [Orders](http://localhost:8080/api/v1/orders/docs)  
-
 <p align="center">
-  <img src="install.gif" alt="animated" />
+  <img src="img/install.gif" alt="animated" />
 </p>
 
-## Usage
+## Usage  
 
-All parameters send via arguments. 
-- set server and port  
-- set sending speed  
-- set file with logs examples  
+### Customers  
+Get, put, update, delete `Customers` via API [Customers](http://localhost:8080/api/v1/customers/docs)    
+<p align="center">
+  <img src="img/customers.gif" alt="animated" />
+</p>
 
-### Examples
+### Products    
+Get, put, update, delete `Products` via API [Products](http://localhost:8080/api/v1/products/docs)  
+<p align="center">
+  <img src="img/products.png" />
+</p>
 
-Start with 2 msg/sec and standart port
+### Prices    
+Get `Prices` via API [Prices](http://localhost:8080/api/v1/prices/docs)  
+<p align="center">
+  <img src="img/prices.png" />
+</p>
 
-```
-python3 -m syslogen 192.168.1.1 -i examples_messages.txt -c 2
-```
+### Orders    
+Get `Orders` via API [Orders](http://localhost:8080/api/v1/orders/docs)  
+<p align="center">
+  <img src="img/orders.png" />
+</p>
 
-Start with 4 msg/sec and port 5514
-```
-python3 -m syslogen 192.168.1.1 -p 5514 -i examples_messages.txt -c 4
-```
-
-## Deployment
-
-Edit Dockerfile and spicify server IP address
-
-Build image
-```
-docker build --network host -t syslogen .
-```
-
-Run image
-```
-docker run syslogen
-```
-## Versioning
-
-Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zakharb/syslogen/tags). 
-
-## Authors
-
-* **Zakhar Bengart** - *Initial work* - [Ze](https://github.com/zakharb)
-
-See also the list of [contributors](https://github.com/zakharb/contributors) who participated in this project.
-
-## License
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation - see the [LICENSE](LICENSE) file for details
-
-
-
-![logo](logo.png)
-
-## MicroAPI  
-### Micro services with FastAPI and Docker  
-
-
-![](https://img.shields.io/badge/version-1.0-blue)
-![](https://img.shields.io/badge/python-3.9-blue)
-
-## Content  
-[Important info](#important_info)  
-[Install](#install)  
-[Configuration](#configuration)  
-[Client](#client)  
-[Usage](#usage)  
-
-
-<a name="important_info"/>
-
-## Important info  
-</a>  
-
-> MicroAPI work as fully separates API in Async mode  
-> Stack: FastAPI + Uvicorn + Nginx  
-> Each Service has its own Database and run in docker containers   
-> Easily expandability With Micro Service architecture  
-> Database can be easily switch from Postgres to MongoDB or other  
-
-<a name="install"/>  
-
-## Install  
-</a>  
-
-- Install `docker` and `docker-compose`  
-- Clone repo  
-- Run `docker-compose up -d`   
-- Check services:  
---  http://localhost:8080/api/v1/customers/docs  
---  http://localhost:8080/api/v1/products/docs  
---  http://localhost:8080/api/v1/prices/docs  
---  http://localhost:8080/api/v1/orders/docs  
-
-<a name="configuration"/>  
 
 ## Configuration  
 </a>  
 
-> To solve problem with performance each Service run in container  
-> Uvicorn work as ASGI server and connect to one piece with Nginx  
-> Main configuration is `docker-compose.yml`  
+To solve problem with performance each Service run in container  
+[Uvicorn]((https://www.uvicorn.org/)) work as ASGI server and connect to one piece with [Nginx](https://www.nginx.com/)  
+Main configuration is `docker-compose.yml`  
 
 - every service located in separate directory `name-service`  
 - use `Dockerfile` to change docker installation settings  
 - folder `app` contain FastAPI application  
 - all services connected to one piece in `docker-compose.yml`  
 - example of service + DB containers (change `--workers XX` to increase multiprocessing)  
+
+### Examples  
+`Customer` service
 ```
   customer_service:
     build: ./customer-service
@@ -193,14 +132,28 @@ This program is free software: you can redistribute it and/or modify it under th
         driver: none 
 ```
 
-<a name="client"/>  
 
 ## Client  
-</a>  
+There is client for work with Microservices  
+`Microapiclient` is used for generating data and testing
 
-- Folder `client` contains client to work with services  
+It is located in folder `client`
+
+### Install  
 ```
-└─$ python -m microapiclient
+cd client
+python3 -m venv venv
+source venv/bin/activate 
+python -m pip install -e .
+```
+
+### Usage
+Run  
+```
+cd client
+source venv/bin/activate 
+python -m microapiclient
+
   __   __   _                      _____   _____  _______ 
  (__)_(__) (_)        _           (_____) (_____)(_______)
 (_) (_) (_) _    ___ (_)__  ___  (_)___(_)(_)__(_)  (_)   
@@ -228,24 +181,7 @@ optional arguments:
 
 ```
 
-- Install  
-```
-cd client
-python3 -m venv venv
-source venv/bin/activate 
-python -m pip install -e .
-```
-- Run  
-```
-cd client
-source venv/bin/activate 
-python -m microapiclient
-```
-
-<a name="usage"/>  
-
-## Usage  
-</a>  
+### Examples  
 
 - Generate Customers  
 ```
@@ -267,3 +203,21 @@ python -m microapiclient postorders --order-file orders.csv --task-count 32
 ```
 cat client.log | more
 ```
+
+## Deployment
+
+Edit `Dockerfile` for each Microservice and deploy container
+
+## Versioning
+
+Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zakharb/microapi/tags). 
+
+## Authors
+
+* **Zakhar Bengart** - *Initial work* - [Ze](https://github.com/zakharb)
+
+See also the list of [contributors](https://github.com/zakharb/microapi/contributors) who participated in this project.
+
+## License
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation - see the [LICENSE](LICENSE) file for details
