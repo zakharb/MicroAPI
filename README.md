@@ -1,60 +1,109 @@
+<p align="center">
+  <a href="https://www.linkedin.com/in/zakharb/microapi">
+  <img src="img/logo.png" alt="logo" />
+</p>
 
-![logo](logo.png)
+<p align="center">
 
-## MicroAPI  
-### Micro services with FastAPI and Docker  
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&pause=1000&color=05998B&center=true&width=500&lines=++Microservice+architecture;+with+FastAPI+and+Docker" alt="description" ></a>
 
+</p>
 
-![](https://img.shields.io/badge/version-1.0-blue)
-![](https://img.shields.io/badge/python-3.9-blue)
-
-## Content  
-[Important info](#important_info)  
-[Install](#install)  
-[Configuration](#configuration)  
-[Client](#client)  
-[Usage](#usage)  
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.1-blue" height="20"/>
+  <img src="https://img.shields.io/badge/python-3.11-blue" height="20"/>
+</p>
 
 
-<a name="important_info"/>
+<p align="center">
+  <img src="img/usage.gif" alt="usage" />
+</p>
 
-## Important info  
-</a>  
 
-> MicroAPI work as fully separates API in Async mode  
-> Stack: FastAPI + Uvicorn + Nginx  
-> Each Service has its own Database and run in docker containers   
-> Easily expandability With Micro Service architecture  
-> Database can be easily switch from Postgres to MongoDB or other  
+## Getting Started
 
-<a name="install"/>  
+[MicroAPI](https://github.com/zakharb/microapi) is fully separates API in Async mode based on [Microservices](https://en.wikipedia.org/wiki/Microservices)   
 
-## Install  
-</a>  
+For CRUD operations is used `Customer - Product - Price - Order` model  
 
-- Install `docker` and `docker-compose`  
-- Clone repo  
-- Run `docker-compose up -d`   
-- Check services:  
---  http://localhost:8080/api/v1/customers/docs  
---  http://localhost:8080/api/v1/products/docs  
---  http://localhost:8080/api/v1/prices/docs  
---  http://localhost:8080/api/v1/orders/docs  
+> The `Customer` buys a `Product` with a different `Price` and receives an `Order`  
+> The `Price` is calculated including taxes/discounts depending on the type of customer/  
 
-<a name="configuration"/>  
+Each part is work like Microservice  
+The Microservice runs in separate Docker container   
+
+Microservice has its own Database  
+Database can be switch from Postgres to MongoDB or other  
+
+
+### Requirements
+
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+
+### Installing
+
+Clone the project
+
+```
+git clone git@github.com:zakharb/microapi.git
+cd microapi
+```
+
+Start docker-compose
+
+```
+docker-compose up -d
+```
+
+<p align="center">
+  <img src="img/install.gif" alt="animated" />
+</p>
+
+## Usage  
+
+### Customers  
+Get, put, update, delete `Customers` via API [Customers](http://localhost:8080/api/v1/customers/docs)    
+<p align="center">
+  <img src="img/customers.gif" alt="animated" />
+</p>
+
+### Products    
+Get, put, update, delete `Products` via API [Products](http://localhost:8080/api/v1/products/docs)  
+<p align="center">
+  <img src="img/products.png" />
+</p>
+
+### Prices    
+Get `Prices` via API [Prices](http://localhost:8080/api/v1/prices/docs)  
+<p align="center">
+  <img src="img/prices.png" />
+</p>
+
+### Orders    
+Get `Orders` via API [Orders](http://localhost:8080/api/v1/orders/docs)  
+<p align="center">
+  <img src="img/orders.png" />
+</p>
+
 
 ## Configuration  
 </a>  
 
-> To solve problem with performance each Service run in container  
-> Uvicorn work as ASGI server and connect to one piece with Nginx  
-> Main configuration is `docker-compose.yml`  
+To solve problem with performance each Service run in container  
+[Uvicorn]((https://www.uvicorn.org/)) work as ASGI server and connect to one piece with [Nginx](https://www.nginx.com/)  
+Main configuration is `docker-compose.yml`  
 
 - every service located in separate directory `name-service`  
 - use `Dockerfile` to change docker installation settings  
 - folder `app` contain FastAPI application  
 - all services connected to one piece in `docker-compose.yml`  
 - example of service + DB containers (change `--workers XX` to increase multiprocessing)  
+
+### Examples  
+`Customer` service
 ```
   customer_service:
     build: ./customer-service
@@ -83,14 +132,28 @@
         driver: none 
 ```
 
-<a name="client"/>  
 
 ## Client  
-</a>  
+There is client for work with Microservices  
+`Microapiclient` is used for generating data and testing
 
-- Folder `client` contains client to work with services  
+It is located in folder `client`
+
+### Install  
 ```
-└─$ python -m microapiclient
+cd client
+python3 -m venv venv
+source venv/bin/activate 
+python -m pip install -e .
+```
+
+### Usage
+Run  
+```
+cd client
+source venv/bin/activate 
+python -m microapiclient
+
   __   __   _                      _____   _____  _______ 
  (__)_(__) (_)        _           (_____) (_____)(_______)
 (_) (_) (_) _    ___ (_)__  ___  (_)___(_)(_)__(_)  (_)   
@@ -118,24 +181,7 @@ optional arguments:
 
 ```
 
-- Install  
-```
-cd client
-python3 -m venv venv
-source venv/bin/activate 
-python -m pip install -e .
-```
-- Run  
-```
-cd client
-source venv/bin/activate 
-python -m microapiclient
-```
-
-<a name="usage"/>  
-
-## Usage  
-</a>  
+### Examples  
 
 - Generate Customers  
 ```
@@ -157,3 +203,21 @@ python -m microapiclient postorders --order-file orders.csv --task-count 32
 ```
 cat client.log | more
 ```
+
+## Deployment
+
+Edit `Dockerfile` for each Microservice and deploy container
+
+## Versioning
+
+Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zakharb/microapi/tags). 
+
+## Authors
+
+* **Zakhar Bengart** - *Initial work* - [Ze](https://github.com/zakharb)
+
+See also the list of [contributors](https://github.com/zakharb/microapi/contributors) who participated in this project.
+
+## License
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation - see the [LICENSE](LICENSE) file for details
