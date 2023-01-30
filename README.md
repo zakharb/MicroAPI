@@ -20,7 +20,7 @@
 </p>
 
 
-## Getting Started
+## :green_square: Getting Started
 
 [MicroAPI](https://github.com/zakharb/microapi) is fully separates API in Async mode based on [Microservices](https://en.wikipedia.org/wiki/Microservices)   
 
@@ -62,7 +62,7 @@ docker-compose up -d
   <img src="img/install.gif" alt="animated" />
 </p>
 
-## Usage  
+## :green_square: Usage  
 
 ### Customers  
 Get, put, update, delete `Customers` via API [Customers](http://localhost:8080/api/v1/customers/docs)    
@@ -89,9 +89,7 @@ Get `Orders` via API [Orders](http://localhost:8080/api/v1/orders/docs)
 </p>
 
 
-## Configuration  
-</a>  
-
+## :green_square: Configuration  
 To solve problem with performance each Service run in container  
 [Uvicorn]((https://www.uvicorn.org/)) work as ASGI server and connect to one piece with [Nginx](https://www.nginx.com/)  
 Main configuration is `docker-compose.yml`  
@@ -133,7 +131,7 @@ Main configuration is `docker-compose.yml`
 ```
 
 
-## Client  
+## :green_square: Client  
 There is client for work with Microservices  
 `Microapiclient` is used for generating data and testing
 
@@ -203,20 +201,20 @@ python -m microapiclient postorders --order-file orders.csv --task-count 32
 cat client.log | more
 ```
 
-## Deployment
+## :green_square: Deployment
 
 Edit `Dockerfile` for each Microservice and deploy container
 
-## Versioning
+## :green_square: Versioning
 
 Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/zakharb/microapi/tags). 
 
-## Authors
+## :green_square: Authors
 
 * **Zakhar Bengart** - *Initial work* - [Ze](https://github.com/zakharb)
 
 See also the list of [contributors](https://github.com/zakharb/microapi/contributors) who participated in this project.
 
-## License
+## :green_square: License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation - see the [LICENSE](LICENSE) file for details
