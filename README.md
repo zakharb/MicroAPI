@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1-blue" height="20"/>
-  <img src="https://img.shields.io/badge/python-3.11-blue" height="20"/>
+  <img src="https://img.shields.io/badge/version-1.2-green" height="20"/>
+  <img src="https://img.shields.io/badge/python-3.11-green" height="20"/>
 </p>
 
 
